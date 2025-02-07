@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+</head>
+<body>
+	<form method="post" action="./RegisterServlet">
+		<table align="center" width="30%">
+			<tr>
+				<th>FName</th>
+				<td><input type="text" name="fname" required></td>
+			</tr>
+			<tr>
+				<th>LName</th>
+				<td><input type="text" name="lname" required></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><input type="email" name="email" required></td>
+			</tr>
+			<tr>
+				<th>Pass</th>
+				<td><input type="password" name="pass" required></td>
+			</tr>
+			<tr>
+				<th>Mobile</th>
+				<td><input type="tel" name="mobile" required pattern="[0-9]{10}"></td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td>
+					<textarea name="address" rows="10" cols="21" required></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" name="submit" value="Register">
+					<input type="reset" name="reset" value="Clear">
+				</td>
+			</tr>
+		</table>
+	</form>
+	<p align="center"><a href="Login.jsp">Login</a></p>
+</body>
+</html>
