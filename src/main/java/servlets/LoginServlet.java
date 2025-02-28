@@ -25,19 +25,28 @@ public class LoginServlet extends HttpServlet {
 		
 		String email=request.getParameter("email").trim();
 		String pass=request.getParameter("pass").trim();
-		
-		ToDoDAO dao=new ToDoDAOImpl();
-		int regid=dao.login(email, pass);
-		if(regid==0) {
-			// out.println("Login Failed");
-			request.setAttribute("loginError", "Invalid Email / Pass ");
+		boolean isValid=true;
+		if(email.length()==0 || pass.isEmpty()) {
+			request.setAttribute("loginError","Email/pass is empty");
+			isValid=false;
+		}else {
+			ToDoDAO dao=new ToDoDAOImpl();
+			int regid=dao.login(email, pass);
+			if(regid==0) {
+				// out.println("Login Failed");
+				request.setAttribute("loginError", "Invalid Email / Pass ");
+				context.getRequestDispatcher("/Login.jsp").forward(request, response);
+				isValid=false;
+				
+			} else {
+				session.setAttribute("email" , email);
+				session.setAttribute("regid", regid);
+				context.getRequestDispatcher("/ViewTasks.jsp").forward(request, response);
+			}
+		}
+		if(!isValid) {
 			context.getRequestDispatcher("/Login.jsp").forward(request, response);
+		}
 			
-		} else {
-			session.setAttribute("email" , email);
-			session.setAttribute("regid", regid);
-		
-			context.getRequestDispatcher("/ViewTasks.jsp").forward(request, response);
-		}	
 	}
 }

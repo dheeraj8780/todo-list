@@ -1,46 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Register</title>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap JS -->
+    <script src="bootstrap.bundle.min.js"></script>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
 <body>
-	<form method="post" action="./RegisterServlet">
-		<table align="center" width="30%">
-			<tr>
-				<th>FName</th>
-				<td><input type="text" name="fname" required></td>
-			</tr>
-			<tr>
-				<th>LName</th>
-				<td><input type="text" name="lname" required></td>
-			</tr>
-			<tr>
-				<th>Email</th>
-				<td><input type="email" name="email" required></td>
-			</tr>
-			<tr>
-				<th>Pass</th>
-				<td><input type="password" name="pass" required></td>
-			</tr>
-			<tr>
-				<th>Mobile</th>
-				<td><input type="tel" name="mobile" required pattern="[0-9]{10}"></td>
-			</tr>
-			<tr>
-				<th>Address</th>
-				<td>
-					<textarea name="address" rows="10" cols="21" required></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" name="submit" value="Register">
-					<input type="reset" name="reset" value="Clear">
-				</td>
-			</tr>
-		</table>
-	</form>
-	<p align="center"><a href="Login.jsp">Login</a></p>
+    <div class="container">
+        <h2 class="text-center mt-4">Register</h2>
+        <form method="post" action="./RegisterServlet">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <table class="table">
+                        <tr>
+                            <th>First Name</th>
+                            <td><input type="text" class="form-control" name="fname"></td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td><input type="text" class="form-control" name="lname"></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><input type="email" class="form-control" name="email"></td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td><input type="password" class="form-control" name="pass"></td>
+                        </tr>
+                        <tr>
+                            <th>Mobile</th>
+                            <td><input type="text" class="form-control" name="mobile"></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>
+                                <textarea class="form-control" name="address" rows="5"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary" name="submit" value="Register">
+                        <input type="reset" class="btn btn-secondary" name="reset" value="Clear">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <p class="text-center mt-3"><a href="Login.jsp">Login</a></p>
+    </div>
 </body>
 </html>
